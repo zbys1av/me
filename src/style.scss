@@ -1,6 +1,6 @@
 // body {
-// 	background: linear-gradient(-45deg, #ffc609, #9b9b9b, #9b9b9b, #9b9b9b);
-// 	background-size: 400% 400%;
+// 	background: linear-gradient(-45deg, #101010, #101010, #101010, #252525);
+// 	background-size: 100% 100%;
 // 	animation: gradient 15s ease infinite;
 // 	height: 100vh;
 // }
@@ -19,35 +19,101 @@
 
 body{
   background: #101010;
-  max-width: 1200px;
+  max-width: 1100px;
+  margin: auto;
 
   --black-color: #101010;
-  --whihe-color: #e7dbc7;
+  --white-color: #e7dbc7;
   font-family: 'Cutive Mono', monospace;
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+::selection {
+  color: var(--black-color);
+  background: var(--white-color);
+  filter: blur(22px);
+}
+
 .container{
   padding: 0 30px;
+  // background: #383838;
 }
 
 p{
   font-size: 50px;
 }
 
+.typewriter{
+  width: 100%;
+  animation: typing 3s steps(17), blink .9s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  // font-family: monospace;
+  // letter-spacing: 0;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+.header{
+
+  position: fixed;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 10px;
+
+  &__box{
+    z-index: 999;
+  }
+
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__element{
+    color: var(--white-color);
+
+    &:nth-child(2){
+      opacity: 30%;
+      user-select: none;
+    }
+  }
+
+}
+
 .first{
+  &__box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: relative;
+    user-select: none;
+    pointer-events: none;
+  }
+
   &__title{
-    color: var(--whihe-color);
+    color: var(--white-color);
     text-transform: uppercase;
     font-size: 100px;
     padding: 0;
     margin: 0;
     line-height: 230px;
     font-weight: 100;
+
+    position: absolute;
+    z-index: 1;
   }
 
   &__text{
-    color: var(--whihe-color);
+    color: var(--white-color);
     padding: 0;
     margin: 0;
     font-weight: 200;
@@ -59,20 +125,15 @@ p{
       font-weight: 900;
     }
   }
-}
 
-
-.typewriter{
-  width: 22ch;
-  animation: typing 3s steps(24), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  // font-family: monospace;
-  // letter-spacing: 0;
-}
-
-@keyframes typing {
-  from {
-    width: 0
+  &__gif{
+    display: flex;
+    border-radius: 21px;
+    filter: grayscale(100%);
+    width: 80%;
+    margin: auto;
+    user-select: none;
+    opacity: 50%;
+    background: var(--white-color);
   }
 }
